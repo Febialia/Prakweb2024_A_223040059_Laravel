@@ -10,9 +10,11 @@ Route::get('/about', function () {
     return view('about', ['nama' => 'Febi Alia Rahman']);
 });
 
-// buat 2 buat rute baru
-// 1. /blog
-// 1 buah artikel, judul dan isi
+Route::get('/blog', function () {
+    return view('blog');
+});
 
-// 2. /contact
-// email/social media
+Route::get('/contact', function () {
+    return view('contact');
+});
+
