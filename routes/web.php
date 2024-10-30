@@ -3,18 +3,19 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('home');
+    return view('home', ['title' => 'Home Page']);
 });
 
 Route::get('/about', function () {
-    return view('about', ['nama' => 'Febi Alia Rahman']);
+    return view('about', ['nama' => 'Febi Alia Rahman','title' => 'about']);
 });
 
 Route::get('/blog', function () {
-    return view('blog');
+    $title = "Blog Page Title"; // Isi variabel title
+    return view('blog', compact('title'));
 });
 
 Route::get('/contact', function () {
-    return view('contact');
+    return view('contact', ['title' => 'Contact']);
 });
 
