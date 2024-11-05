@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->boolean('is_admin')->default(false); 
             $table->foreignId('author_id')->constrained(
                 table: 'users', 
                 indexName: 'posts_author_id'
@@ -23,8 +24,10 @@ return new class extends Migration
                 indexName: 'posts_category_id'
             );
             $table->string('slug')->unique();
+            $table->string('image')->nullable();
             $table->text('body');
             $table->timestamps();
+            $table->dropColumn('is_admin');
         });
     }
 
@@ -35,5 +38,8 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('posts');
+        
     }
+
+    
 };
